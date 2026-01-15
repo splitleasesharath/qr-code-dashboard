@@ -1,0 +1,194 @@
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.qr-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background-color: white;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.qr-card:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-md);
+}
+
+.qr-card.selected {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+/* Selection Checkbox */
+.qr-select {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  background-color: white;
+  transition: all var(--transition-fast);
+}
+
+.checkbox.checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* QR Image */
+.qr-image {
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  background-color: white;
+  border-radius: var(--radius-md);
+}
+
+/* QR Info */
+.qr-info {
+  text-align: center;
+  margin-top: var(--spacing-sm);
+}
+
+.qr-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.qr-usecase {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+/* Action Buttons */
+.qr-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.qr-card:hover .qr-actions {
+  opacity: 1;
+}
+
+.btn-edit:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.btn-delete:hover {
+  color: var(--error-color);
+  background-color: var(--error-bg);
+}
+
+/* Add Card */
+.qr-card-add {
+  border-style: dashed;
+  cursor: pointer;
+  min-height: 220px;
+  justify-content: center;
+}
+
+.qr-card-add:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.add-icon {
+  color: var(--gray-400);
+  transition: color var(--transition-fast);
+}
+
+.qr-card-add:hover .add-icon {
+  color: var(--primary-color);
+}
+
+.qr-card-add span {
+  margin-top: var(--spacing-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.qr-card-add:hover span {
+  color: var(--primary-color);
+}
+
+/* Empty State */
+.qr-grid-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.empty-icon {
+  color: var(--gray-300);
+  margin-bottom: var(--spacing-lg);
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .qr-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .qr-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .qr-card {
+    padding: var(--spacing-md);
+  }
+
+  .qr-actions {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-grid {
+    grid-template-columns: 1fr;
+  }
+}
